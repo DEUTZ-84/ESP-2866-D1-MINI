@@ -1,0 +1,65 @@
+void setup() {
+  // put your setup code here, to run once:
+ pinMode(5,OUTPUT);
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(5,HIGH);
+  delay(500);
+  digitalWrite(5,LOW);
+  delay(500);
+
+}
+exercice 3
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(2400);
+  
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+Serial.print("ADC=");
+Serial.println(analogRead(A0));
+Serial.print("tention :");
+Serial.println(analogRead(A0)*(3.3/1023.0));
+delay(500);
+
+}
+exercice 3 complet 
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(2400);
+}
+void loop() {
+  // put your main code here, to run repeatedly:
+  float min=3.33;
+  float max=0;
+  float somme=0;
+ for( int i=0;i<10;i++){
+Serial.print("ADC=");
+Serial.println(analogRead(A0));
+Serial.print("tention :");
+Serial.println(analogRead(A0)*(3.3/1023.0));
+if(min>(analogRead(A0)*(3.3/1023.0))){
+   min=analogRead(A0)*(3.3/1023.0);
+}
+  if(max<(analogRead(A0)*(3.3/1023.0))){
+  max=analogRead(A0)*(3.3/1023.0);
+
+  }
+  somme=somme+(analogRead(A0)*(3.3/1023.0));
+  delay(500);
+  }
+  Serial.print("MIN=");
+  Serial.println(min);
+  Serial.print("MAX=");
+  Serial.println(max);
+  float moyene=somme/10;
+  Serial.print("moyenne=");
+  Serial.println(moyene);
+  
+}
