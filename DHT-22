@@ -1,0 +1,27 @@
+#include <DHT22.h>
+
+#define PIN 04  
+
+// Initialize the DHT sensor
+DHT22 dht22(PIN);
+
+void setup(){
+  Serial.begin(9600);
+
+}
+
+void loop() {
+  delay(2000);
+
+  // Read humidity
+  float h = dht22.getHumidity();
+  // Read temperature as Celsius (the default)
+  float t = dht22.getTemperature();
+
+  Serial.print(F("Humidity: "));
+  Serial.print(h);
+  Serial.print(F("%  Temperature: "));
+  Serial.print(t);
+  Serial.print(F("°C "));+
+ 
+}
